@@ -35,6 +35,7 @@ const I18N = (() => {
       badgesModalSubtitle: "{unlocked} von {total} freigeschaltet",
       badgesCloseLabel: "Schließen",
       badgeLockedLabel: "Noch nicht freigeschaltet",
+      progressLabel: "Abgeschlossene Lektionen",
     },
     en: {
       level: "Level",
@@ -67,6 +68,7 @@ const I18N = (() => {
       badgesModalSubtitle: "{unlocked} of {total} unlocked",
       badgesCloseLabel: "Close",
       badgeLockedLabel: "Not unlocked yet",
+      progressLabel: "Completed lessons",
     },
   };
 

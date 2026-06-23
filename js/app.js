@@ -35,6 +35,7 @@
   const levelCountEl = document.getElementById("level-count");
   const xpBarFillEl = document.getElementById("xp-bar-fill");
   const xpLabelEl = document.getElementById("xp-label");
+  const progressCountEl = document.getElementById("progress-count");
 
   function init() {
     I18N.setLang(state.lang || "de");
@@ -81,6 +82,7 @@
     document.getElementById("prev-icon").innerHTML = Icons.svg("arrowLeft", { size: 16 });
     document.getElementById("next-icon").innerHTML = Icons.svg("arrowRight", { size: 16 });
     document.getElementById("badges-close-icon").innerHTML = Icons.svg("x", { size: 18 });
+    document.getElementById("progress-icon").innerHTML = Icons.svg("check", { size: 16 });
   }
 
   // ---------------- Badges modal ----------------
@@ -322,6 +324,7 @@
     levelCountEl.textContent = progress.level;
     xpBarFillEl.style.width = `${Math.round(progress.ratio * 100)}%`;
     xpLabelEl.textContent = `${state.xp} / ${progress.ceil} XP`;
+    progressCountEl.textContent = `${state.completedLessons.length} / ${LESSONS.getAllLessons().length}`;
   }
 
   // ---------------- Language ----------------
