@@ -41,6 +41,10 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-base: 240ms;
+
+  /* Tiefen-Sprache: Panels wirken wie übereinander gestapelte Ebenen */
+  --shadow-md: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 56px -16px rgba(0, 0, 0, 0.55);
 }
 
 * { box-sizing: border-box; }
@@ -286,6 +290,45 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   z-index: 0;
 }
 
+/* Isometrischer Modul-Stapel: visualisiert, dass der Kurs Schicht für
+   Schicht aufgebaut wird, eine Farbrolle pro Panel. Rein ambient, wie
+   die Partikel — kein Interaktionsziel. */
+.hero-stack {
+  position: absolute;
+  right: 36px;
+  top: 36px;
+  z-index: 0;
+  width: 190px;
+  height: 150px;
+}
+
+.hero-stack-panel {
+  position: absolute;
+  width: 118px;
+  height: 56px;
+  border-radius: 8px;
+  border: 1.5px solid var(--panel-color);
+  background: var(--panel-fill);
+  box-shadow: var(--shadow-md);
+  rotate: -7deg;
+  opacity: 0;
+  animation: stack-in var(--duration-base) var(--ease-out) forwards;
+}
+
+.hero-stack-panel--keyword { --panel-color: var(--syntax-keyword); --panel-fill: rgba(199, 146, 234, 0.22); top: 0; left: 64px; animation-delay: 0ms; }
+.hero-stack-panel--function { --panel-color: var(--syntax-function); --panel-fill: rgba(130, 170, 255, 0.22); top: 30px; left: 40px; animation-delay: 90ms; }
+.hero-stack-panel--string { --panel-color: var(--syntax-string); --panel-fill: rgba(247, 140, 102, 0.22); top: 60px; left: 16px; animation-delay: 180ms; }
+.hero-stack-panel--number { --panel-color: var(--syntax-number); --panel-fill: rgba(139, 209, 124, 0.22); top: 90px; left: -8px; animation-delay: 270ms; }
+
+@keyframes stack-in {
+  from { opacity: 0; translate: 16px -16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (max-width: 1100px) {
+  .hero-stack { display: none; }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -320,7 +363,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 28px;
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-demo-header {
@@ -426,6 +469,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   white-space: pre;
   margin: 0;
   color: var(--syntax-number);
+  box-shadow: var(--shadow-md);
 }
 
 .xp-reward {
@@ -477,6 +521,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .code-editor {
@@ -500,6 +545,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .console-header {
@@ -559,7 +605,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border-radius: var(--radius);
   padding: 14px 18px;
   min-width: 240px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-md);
   animation: toast-in var(--duration-base) var(--ease-out), toast-out var(--duration-base) ease 2.7s;
   animation-fill-mode: forwards;
 }
@@ -598,7 +644,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--shadow-lg);
   animation: fade-up var(--duration-base) var(--ease-out);
 }
 
@@ -648,9 +694,15 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-bg-elevated-2);
+  transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
 
-.badge-card.unlocked { border-color: var(--color-brand); }
+.badge-card.unlocked {
+  border-color: var(--color-brand);
+  box-shadow: var(--shadow-md);
+}
+
+.badge-card.unlocked:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
 .badge-card-icon {
   display: inline-flex;
