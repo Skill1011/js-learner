@@ -53,11 +53,42 @@
   <main class="main-content" id="main-content">
     <div class="welcome-screen" id="welcome-screen">
       <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
-      <div class="hero-stack" aria-hidden="true">
-        <div class="hero-stack-panel hero-stack-panel--keyword"></div>
-        <div class="hero-stack-panel hero-stack-panel--function"></div>
-        <div class="hero-stack-panel hero-stack-panel--string"></div>
-        <div class="hero-stack-panel hero-stack-panel--number"></div>
+      <div class="hero-chip-wrap" aria-hidden="true">
+        <div class="hero-chip-glow"></div>
+        <svg class="hero-chip" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+          <rect class="hero-chip-body" x="70" y="40" width="220" height="160" rx="16"/>
+          <g class="hero-chip-pins">
+            <rect class="hero-chip-pin" x="90" y="26" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="130" y="26" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="170" y="26" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="210" y="26" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="250" y="26" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="90" y="200" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="130" y="200" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="170" y="200" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="210" y="200" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="250" y="200" width="10" height="14"/>
+            <rect class="hero-chip-pin" x="56" y="65" width="14" height="10"/>
+            <rect class="hero-chip-pin" x="56" y="105" width="14" height="10"/>
+            <rect class="hero-chip-pin" x="56" y="145" width="14" height="10"/>
+            <rect class="hero-chip-pin" x="290" y="65" width="14" height="10"/>
+            <rect class="hero-chip-pin" x="290" y="105" width="14" height="10"/>
+            <rect class="hero-chip-pin" x="290" y="145" width="14" height="10"/>
+          </g>
+          <g class="hero-chip-grid">
+            <rect class="hero-chip-cell hero-chip-cell--keyword" x="90" y="60" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--function" x="136" y="60" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--string" x="182" y="60" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--number" x="228" y="60" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--function" x="90" y="102" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-core" x="136" y="100" width="84" height="36" rx="6"/>
+            <rect class="hero-chip-cell hero-chip-cell--keyword" x="228" y="102" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--number" x="90" y="144" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--string" x="136" y="144" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--function" x="182" y="144" width="38" height="32" rx="4"/>
+            <rect class="hero-chip-cell hero-chip-cell--keyword" x="228" y="144" width="38" height="32" rx="4"/>
+          </g>
+        </svg>
       </div>
       <div class="hero-content">
         <p class="hero-eyebrow" data-i18n="heroEyebrow">Interaktiver JavaScript-Kurs</p>

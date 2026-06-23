@@ -290,43 +290,62 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   z-index: 0;
 }
 
-/* Isometrischer Modul-Stapel: visualisiert, dass der Kurs Schicht für
-   Schicht aufgebaut wird, eine Farbrolle pro Panel. Rein ambient, wie
-   die Partikel — kein Interaktionsziel. */
-.hero-stack {
+/* Chip-Illustration: ein "Prozessor", dessen Kern aufleuchtet — steht
+   für den eigentlichen Produktmoment (Code schreiben, sofort sehen,
+   was passiert / der Code "läuft"). Rein ambient wie die Partikel,
+   sitzt hinter dem Text (z-index unter .hero-content). */
+.hero-chip-wrap {
   position: absolute;
-  right: 36px;
-  top: 36px;
+  right: -16px;
+  bottom: -16px;
   z-index: 0;
-  width: 190px;
-  height: 150px;
+  width: clamp(260px, 32vw, 380px);
+  pointer-events: none;
 }
 
-.hero-stack-panel {
+.hero-chip-glow {
   position: absolute;
-  width: 118px;
-  height: 56px;
-  border-radius: 8px;
-  border: 1.5px solid var(--panel-color);
-  background: var(--panel-fill);
-  box-shadow: var(--shadow-md);
-  rotate: -7deg;
+  inset: 12%;
+  background: radial-gradient(circle, rgba(247, 223, 30, 0.22), transparent 70%);
+  filter: blur(28px);
+}
+
+.hero-chip {
+  position: relative;
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.55));
   opacity: 0;
-  animation: stack-in var(--duration-base) var(--ease-out) forwards;
+  animation: chip-in 500ms var(--ease-out) 100ms forwards;
 }
 
-.hero-stack-panel--keyword { --panel-color: var(--syntax-keyword); --panel-fill: rgba(199, 146, 234, 0.22); top: 0; left: 64px; animation-delay: 0ms; }
-.hero-stack-panel--function { --panel-color: var(--syntax-function); --panel-fill: rgba(130, 170, 255, 0.22); top: 30px; left: 40px; animation-delay: 90ms; }
-.hero-stack-panel--string { --panel-color: var(--syntax-string); --panel-fill: rgba(247, 140, 102, 0.22); top: 60px; left: 16px; animation-delay: 180ms; }
-.hero-stack-panel--number { --panel-color: var(--syntax-number); --panel-fill: rgba(139, 209, 124, 0.22); top: 90px; left: -8px; animation-delay: 270ms; }
+.hero-chip-body { fill: var(--color-bg-elevated-2); stroke: var(--color-border); stroke-width: 1.5; }
+.hero-chip-pin { fill: var(--color-border); }
 
-@keyframes stack-in {
-  from { opacity: 0; translate: 16px -16px; }
-  to { opacity: 1; translate: 0 0; }
+.hero-chip-cell { opacity: 0.5; }
+.hero-chip-cell--keyword { fill: var(--syntax-keyword); }
+.hero-chip-cell--function { fill: var(--syntax-function); }
+.hero-chip-cell--string { fill: var(--syntax-string); }
+.hero-chip-cell--number { fill: var(--syntax-number); }
+
+.hero-chip-core {
+  fill: var(--color-brand);
+  filter: drop-shadow(0 0 10px var(--color-brand));
+  animation: core-pulse 2.6s ease-in-out infinite;
 }
 
-@media (max-width: 1100px) {
-  .hero-stack { display: none; }
+@keyframes chip-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes core-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@media (max-width: 800px) {
+  .hero-chip-wrap { display: none; }
 }
 
 .hero-content {
