@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS Learner: JavaScript lernen von null an</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="brand">
+    <span class="brand-icon" id="brand-icon"></span>
+    <span class="brand-name">JS&nbsp;Learner</span>
+  </div>
+
+  <div class="header-stats">
+    <div class="stat stat-streak" id="streak-stat" title="Streak">
+      <span class="stat-icon" id="streak-icon"></span>
+      <span id="streak-count">0</span>
+    </div>
+    <button class="stat stat-level stat-trigger" id="badges-open-btn" type="button" data-i18n-title="badgesButtonLabel" title="Abzeichen anzeigen">
+      <span class="stat-icon" id="level-icon"></span>
+      <span data-i18n="level">Level</span> <span id="level-count">1</span>
+    </button>
+    <div class="stat stat-xp">
+      <div class="xp-bar-track">
+        <div class="xp-bar-fill" id="xp-bar-fill"></div>
+      </div>
+      <span id="xp-label">0 / 50 XP</span>
+    </div>
+  </div>
+
+  <button id="lang-toggle" class="lang-toggle" title="Sprache wechseln / Switch language" aria-label="Sprache wechseln / Switch language">
+    <span class="lang-icon" id="lang-icon"></span>
+    <span>DE&nbsp;/&nbsp;EN</span>
+  </button>
+</header>
+
+<div class="app-layout">
+
+  <aside class="sidebar" id="sidebar">
+    <!-- Module & Lektionsliste werden dynamisch per app.js eingefügt -->
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <div class="welcome-screen" id="welcome-screen">
+      <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow" data-i18n="heroEyebrow">Interaktiver JavaScript-Kurs</p>
+        <h1 data-i18n="welcomeTitle">Code schreiben. Direkt sehen, was passiert.</h1>
+        <p class="hero-text" data-i18n="welcomeText">Wähle links eine Lektion. Du schreibst echten Code, er läuft sofort im Browser, und du sammelst XP für jede Lösung.</p>
+        <div class="hero-demo">
+          <div class="hero-demo-header">
+            <span class="hero-demo-dot"></span>
+            <span class="hero-demo-dot"></span>
+            <span class="hero-demo-dot"></span>
+            <span class="hero-demo-label">console</span>
+          </div>
+          <pre class="hero-demo-body"><code id="hero-typed-code"></code><span class="hero-caret"></span></pre>
+        </div>
+        <button class="btn btn-primary btn-hero" id="start-learning-btn" data-i18n="startLearning">Erste Lektion starten</button>
+      </div>
+    </div>
+
+    <article class="lesson-view hidden" id="lesson-view">
+      <header class="lesson-header">
+        <span class="lesson-module-label" id="lesson-module-label"></span>
+        <h1 id="lesson-title" tabindex="-1"></h1>
+      </header>
+
+      <section class="lesson-section">
+        <h2 data-i18n="explanationHeading">Erklärung</h2>
+        <div id="lesson-explanation" class="lesson-explanation"></div>
+      </section>
+
+      <section class="lesson-section">
+        <h2 data-i18n="exampleHeading">Beispiel</h2>
+        <pre class="code-example" id="lesson-example"></pre>
+      </section>
+
+      <section class="lesson-section">
+        <h2 data-i18n="taskHeading">Aufgabe</h2>
+        <div id="lesson-task" class="lesson-task"></div>
+        <span class="xp-reward" id="lesson-xp-reward"></span>
+      </section>
+
+      <section class="lesson-section editor-section">
+        <div class="editor-toolbar">
+          <button id="run-btn" class="btn btn-primary">
+            <span class="btn-icon" id="run-icon"></span>
+            <span data-i18n="runButton">Ausführen</span>
+          </button>
+          <button id="reset-btn" class="btn btn-secondary">
+            <span class="btn-icon" id="reset-icon"></span>
+            <span data-i18n="resetButton">Zurücksetzen</span>
+          </button>
+        </div>
+        <div class="editor-wrapper">
+          <textarea id="code-editor" class="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+        </div>
+        <div class="console-panel">
+          <div class="console-header" data-i18n="consoleHeading">Konsole</div>
+          <pre class="console-output" id="console-output"></pre>
+          <div class="test-result" id="test-result"></div>
+        </div>
+      </section>
+
+      <div class="lesson-nav">
+        <button id="prev-lesson-btn" class="btn btn-secondary">
+          <span class="btn-icon" id="prev-icon"></span>
+          <span data-i18n="prevLesson">Zurück</span>
+        </button>
+        <button id="next-lesson-btn" class="btn btn-secondary">
+          <span data-i18n="nextLesson">Weiter</span>
+          <span class="btn-icon" id="next-icon"></span>
+        </button>
+      </div>
+    </article>
+  </main>
+</div>
+
+<div class="modal-overlay hidden" id="badges-modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="badges-modal-title">
+    <div class="modal-header">
+      <div>
+        <h2 id="badges-modal-title" data-i18n="badgesModalTitle">Abzeichen</h2>
+        <p class="modal-subtitle" id="badges-modal-subtitle"></p>
+      </div>
+      <button class="modal-close" id="badges-close-btn" type="button" data-i18n-aria-label="badgesCloseLabel" aria-label="Schließen">
+        <span id="badges-close-icon"></span>
+      </button>
+    </div>
+    <div class="badges-grid" id="badges-grid"></div>
+  </div>
+</div>
+
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/gamification.js"></script>
+<script src="js/runner.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
