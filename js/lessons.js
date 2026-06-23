@@ -143,6 +143,38 @@ const LESSONS = (() => {
           tests: [{ type: "output", expected: ["bestanden"] }],
           xp: 15,
         },
+        {
+          id: "else-if-chains",
+          title: { de: "else if-Ketten", en: "else if chains" },
+          explanation: {
+            de: "Mit <code>else if</code> prüfst du mehrere Bedingungen nacheinander. Die erste zutreffende wird ausgeführt, der Rest wird übersprungen.",
+            en: "Use <code>else if</code> to check multiple conditions in order. The first one that matches runs, the rest are skipped.",
+          },
+          example: "let note = 2;\nif (note === 1) {\n  console.log(\"sehr gut\");\n} else if (note === 2) {\n  console.log(\"gut\");\n} else {\n  console.log(\"weiter so\");\n}",
+          task: {
+            de: "Lege eine Variable <code>temperatur</code> mit dem Wert <code>28</code> an. Gib <code>\"heiß\"</code> aus, wenn sie über 25 liegt, sonst <code>\"mild\"</code>, wenn sie über 15 liegt, sonst <code>\"kalt\"</code>.",
+            en: "Create a variable <code>temperatur</code> with value <code>28</code>. Print <code>\"heiß\"</code> if it's above 25, otherwise <code>\"mild\"</code> if above 15, otherwise <code>\"kalt\"</code>.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["heiß"] }],
+          xp: 15,
+        },
+        {
+          id: "switch-statement",
+          title: { de: "switch-Statement", en: "switch statement" },
+          explanation: {
+            de: "<code>switch</code> vergleicht einen Wert mit mehreren <code>case</code>-Möglichkeiten. <code>break</code> beendet den jeweiligen Fall, <code>default</code> greift, wenn nichts passt.",
+            en: "<code>switch</code> compares a value against several <code>case</code> options. <code>break</code> ends each case, <code>default</code> runs when nothing matches.",
+          },
+          example: "let tag = \"Mo\";\nswitch (tag) {\n  case \"Mo\":\n    console.log(\"Montag\");\n    break;\n  default:\n    console.log(\"anderer Tag\");\n}",
+          task: {
+            de: "Lege eine Variable <code>farbe</code> mit dem Wert <code>\"grün\"</code> an. Gib per <code>switch</code> <code>\"los\"</code> aus, wenn sie <code>\"grün\"</code> ist, <code>\"warten\"</code> bei <code>\"gelb\"</code>, <code>\"stopp\"</code> bei <code>\"rot\"</code>.",
+            en: "Create a variable <code>farbe</code> with value <code>\"grün\"</code>. Use <code>switch</code> to print <code>\"los\"</code> for <code>\"grün\"</code>, <code>\"warten\"</code> for <code>\"gelb\"</code>, <code>\"stopp\"</code> for <code>\"rot\"</code>.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["los"] }],
+          xp: 15,
+        },
       ],
     },
     {
@@ -163,6 +195,38 @@ const LESSONS = (() => {
           },
           starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
           tests: [{ type: "output", expected: ["1", "2", "3", "4", "5"] }],
+          xp: 20,
+        },
+        {
+          id: "while-loop",
+          title: { de: "Die while-Schleife", en: "The while loop" },
+          explanation: {
+            de: "Eine <code>while</code>-Schleife wiederholt Code, solange eine Bedingung wahr ist: <code>while (bedingung) { ... }</code>. Du musst die Bedingung selbst irgendwann falsch machen, sonst läuft sie endlos.",
+            en: "A <code>while</code> loop repeats code as long as a condition is true: <code>while (condition) { ... }</code>. You must make the condition false yourself eventually, or it runs forever.",
+          },
+          example: "let zahl = 5;\nwhile (zahl > 0) {\n  console.log(zahl);\n  zahl--;\n}",
+          task: {
+            de: "Erstelle eine Variable <code>zaehler</code> mit dem Wert <code>3</code>. Gib mit einer <code>while</code>-Schleife <code>zaehler</code> aus und verringere ihn jedes Mal um 1, bis er <code>0</code> erreicht (3, 2, 1 ausgeben).",
+            en: "Create a variable <code>zaehler</code> with value <code>3</code>. Use a <code>while</code> loop to print <code>zaehler</code> and decrease it by 1 each time, until it reaches <code>0</code> (print 3, 2, 1).",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["3", "2", "1"] }],
+          xp: 20,
+        },
+        {
+          id: "for-of-arrays",
+          title: { de: "Arrays durchlaufen mit for...of", en: "Iterating arrays with for...of" },
+          explanation: {
+            de: "Mit <code>for (const wert of array) { ... }</code> bekommst du in jedem Durchlauf direkt den nächsten Wert des Arrays, ohne selbst einen Index zu verwalten.",
+            en: "With <code>for (const value of array) { ... }</code> you get the next array value directly on each iteration, without managing an index yourself.",
+          },
+          example: "let obst = [\"Apfel\", \"Birne\", \"Kiwi\"];\nfor (const stueck of obst) {\n  console.log(stueck);\n}",
+          task: {
+            de: "Erstelle ein Array <code>tiere</code> mit <code>[\"Hund\", \"Katze\", \"Maus\"]</code> und gib jedes Element mit <code>for...of</code> in einer eigenen Zeile aus.",
+            en: "Create an array <code>tiere</code> with <code>[\"Hund\", \"Katze\", \"Maus\"]</code> and print each element on its own line using <code>for...of</code>.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["Hund", "Katze", "Maus"] }],
           xp: 20,
         },
       ],
@@ -190,6 +254,44 @@ const LESSONS = (() => {
           ],
           xp: 20,
         },
+        {
+          id: "arrow-functions",
+          title: { de: "Arrow Functions", en: "Arrow functions" },
+          explanation: {
+            de: "Arrow Functions sind eine kürzere Schreibweise für Funktionen: <code>const name = (parameter) => ausdruck;</code>. Bei nur einem Ausdruck entfällt <code>return</code>.",
+            en: "Arrow functions are a shorter way to write functions: <code>const name = (parameter) => expression;</code>. With a single expression you can skip <code>return</code>.",
+          },
+          example: "const verdoppeln = (zahl) => zahl * 2;\nconsole.log(verdoppeln(4));",
+          task: {
+            de: "Schreibe eine Arrow Function <code>halbieren</code>, die eine Zahl durch 2 teilt. Rufe sie mit <code>10</code> auf und gib das Ergebnis aus.",
+            en: "Write an arrow function <code>halbieren</code> that divides a number by 2. Call it with <code>10</code> and print the result.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [
+            { type: "assert", code: "typeof halbieren === 'function' && halbieren(10) === 5" },
+            { type: "output", expected: ["5"] },
+          ],
+          xp: 20,
+        },
+        {
+          id: "default-parameters",
+          title: { de: "Default-Parameter", en: "Default parameters" },
+          explanation: {
+            de: "Funktionsparameter können einen Standardwert haben: <code>function gruss(name = \"Gast\") { ... }</code>. Wird kein Argument übergeben, greift der Standardwert.",
+            en: "Function parameters can have a default value: <code>function gruss(name = \"Gast\") { ... }</code>. If no argument is passed, the default value is used.",
+          },
+          example: "function gruss(name = \"Gast\") {\n  return `Hallo, ${name}!`;\n}\nconsole.log(gruss());\nconsole.log(gruss(\"Cem\"));",
+          task: {
+            de: "Schreibe eine Funktion <code>potenz(basis, exponent = 2)</code>, die <code>basis</code> hoch <code>exponent</code> zurückgibt (nutze <code>Math.pow</code>). Rufe sie nur mit <code>basis = 3</code> auf und gib das Ergebnis aus.",
+            en: "Write a function <code>potenz(basis, exponent = 2)</code> that returns <code>basis</code> to the power of <code>exponent</code> (use <code>Math.pow</code>). Call it with only <code>basis = 3</code> and print the result.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [
+            { type: "assert", code: "typeof potenz === 'function' && potenz(3) === 9" },
+            { type: "output", expected: ["9"] },
+          ],
+          xp: 20,
+        },
       ],
     },
     {
@@ -210,6 +312,38 @@ const LESSONS = (() => {
           },
           starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
           tests: [{ type: "output", expected: ["1,2,3,4"] }],
+          xp: 20,
+        },
+        {
+          id: "array-map-filter",
+          title: { de: ".map() und .filter()", en: ".map() and .filter()" },
+          explanation: {
+            de: "<code>.map()</code> erzeugt ein neues Array, indem es jeden Wert umwandelt. <code>.filter()</code> erzeugt ein neues Array nur mit Werten, die eine Bedingung erfüllen.",
+            en: "<code>.map()</code> creates a new array by transforming every value. <code>.filter()</code> creates a new array containing only values that match a condition.",
+          },
+          example: "let zahlen = [1, 2, 3, 4];\nlet verdoppelt = zahlen.map((z) => z * 2);\nlet gerade = zahlen.filter((z) => z % 2 === 0);\nconsole.log(verdoppelt);\nconsole.log(gerade);",
+          task: {
+            de: "Erstelle ein Array <code>zahlen</code> mit <code>[1, 2, 3, 4, 5]</code>. Erzeuge mit <code>.filter()</code> ein Array <code>grosse</code> mit allen Zahlen größer als 2 und gib es aus.",
+            en: "Create an array <code>zahlen</code> with <code>[1, 2, 3, 4, 5]</code>. Use <code>.filter()</code> to create an array <code>grosse</code> with all numbers greater than 2 and print it.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["3,4,5"] }],
+          xp: 25,
+        },
+        {
+          id: "array-find-includes",
+          title: { de: ".find() und .includes()", en: ".find() and .includes()" },
+          explanation: {
+            de: "<code>.find()</code> gibt den ersten Wert zurück, der eine Bedingung erfüllt (oder <code>undefined</code>). <code>.includes()</code> prüft, ob ein Wert im Array enthalten ist, und gibt <code>true</code>/<code>false</code> zurück.",
+            en: "<code>.find()</code> returns the first value matching a condition (or <code>undefined</code>). <code>.includes()</code> checks whether a value exists in the array and returns <code>true</code>/<code>false</code>.",
+          },
+          example: "let zahlen = [3, 7, 12, 5];\nconsole.log(zahlen.find((z) => z > 10));\nconsole.log(zahlen.includes(7));",
+          task: {
+            de: "Erstelle ein Array <code>namen</code> mit <code>[\"Anna\", \"Ben\", \"Cem\"]</code>. Gib mit <code>.includes()</code> aus, ob <code>\"Ben\"</code> enthalten ist.",
+            en: "Create an array <code>namen</code> with <code>[\"Anna\", \"Ben\", \"Cem\"]</code>. Use <code>.includes()</code> to print whether <code>\"Ben\"</code> is contained.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["true"] }],
           xp: 20,
         },
       ],
@@ -234,6 +368,76 @@ const LESSONS = (() => {
           tests: [{ type: "output", expected: ["VW"] }],
           xp: 20,
         },
+        {
+          id: "object-methods",
+          title: { de: "Objekt-Methoden", en: "Object methods" },
+          explanation: {
+            de: "Eine Eigenschaft kann auch eine Funktion sein — das nennt man Methode. Innerhalb der Methode greifst du mit <code>this</code> auf andere Eigenschaften desselben Objekts zu.",
+            en: "A property can also be a function — that's called a method. Inside the method, use <code>this</code> to access other properties of the same object.",
+          },
+          example: "let person = {\n  name: \"Cem\",\n  gruesse() {\n    return `Hallo, ich bin ${this.name}`;\n  },\n};\nconsole.log(person.gruesse());",
+          task: {
+            de: "Erstelle ein Objekt <code>rechteck</code> mit <code>breite: 4</code>, <code>hoehe: 3</code> und einer Methode <code>flaeche()</code>, die <code>breite * hoehe</code> zurückgibt. Rufe <code>rechteck.flaeche()</code> auf und gib das Ergebnis aus.",
+            en: "Create an object <code>rechteck</code> with <code>breite: 4</code>, <code>hoehe: 3</code> and a method <code>flaeche()</code> that returns <code>breite * hoehe</code>. Call <code>rechteck.flaeche()</code> and print the result.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["12"] }],
+          xp: 25,
+        },
+        {
+          id: "object-destructuring",
+          title: { de: "Destructuring", en: "Destructuring" },
+          explanation: {
+            de: "Mit Destructuring holst du Eigenschaften direkt in Variablen: <code>const { name, alter } = person;</code> erstellt <code>name</code> und <code>alter</code> aus den gleichnamigen Eigenschaften.",
+            en: "Destructuring pulls properties directly into variables: <code>const { name, alter } = person;</code> creates <code>name</code> and <code>alter</code> from the matching properties.",
+          },
+          example: "let person = { name: \"Cem\", alter: 16 };\nconst { name, alter } = person;\nconsole.log(name, alter);",
+          task: {
+            de: "Erstelle ein Objekt <code>buch</code> mit <code>titel: \"Krabat\"</code> und <code>seiten: 320</code>. Hole <code>titel</code> per Destructuring in eine Variable und gib sie aus.",
+            en: "Create an object <code>buch</code> with <code>titel: \"Krabat\"</code> and <code>seiten: 320</code>. Pull out <code>titel</code> using destructuring and print it.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["Krabat"] }],
+          xp: 20,
+        },
+      ],
+    },
+    {
+      id: "strings-fehler",
+      title: { de: "Strings & Fehler", en: "Strings & Errors" },
+      lessons: [
+        {
+          id: "string-methods",
+          title: { de: "String-Methoden", en: "String methods" },
+          explanation: {
+            de: "Strings haben nützliche Methoden: <code>.toUpperCase()</code> (Großbuchstaben), <code>.slice(start, ende)</code> (Ausschnitt), <code>.length</code> (Länge), <code>.trim()</code> (Leerzeichen entfernen).",
+            en: "Strings have useful methods: <code>.toUpperCase()</code> (uppercase), <code>.slice(start, end)</code> (substring), <code>.length</code> (length), <code>.trim()</code> (remove whitespace).",
+          },
+          example: "let text = \"Hallo Welt\";\nconsole.log(text.toUpperCase());\nconsole.log(text.slice(0, 5));",
+          task: {
+            de: "Erstelle eine Variable <code>wort</code> mit dem Wert <code>\"javascript\"</code> und gib sie mit <code>.toUpperCase()</code> in Großbuchstaben aus.",
+            en: "Create a variable <code>wort</code> with the value <code>\"javascript\"</code> and print it in uppercase using <code>.toUpperCase()</code>.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["JAVASCRIPT"] }],
+          xp: 15,
+        },
+        {
+          id: "try-catch-basics",
+          title: { de: "try / catch", en: "try / catch" },
+          explanation: {
+            de: "Mit <code>try { ... } catch (fehler) { ... }</code> fängst du Fehler ab, statt dass dein Programm abstürzt. Der <code>catch</code>-Block läuft nur, wenn im <code>try</code>-Block ein Fehler auftritt.",
+            en: "With <code>try { ... } catch (error) { ... }</code> you catch errors instead of letting your program crash. The <code>catch</code> block only runs if an error occurs inside <code>try</code>.",
+          },
+          example: "try {\n  let ergebnis = 10 / 0;\n  JSON.parse(\"kein json\");\n} catch (fehler) {\n  console.log(\"Fehler abgefangen\");\n}",
+          task: {
+            de: "Schreibe einen <code>try</code>-Block, der <code>JSON.parse(\"ungueltig\")</code> aufruft (das wirft einen Fehler). Gib im <code>catch</code>-Block <code>\"Fehler abgefangen\"</code> aus.",
+            en: "Write a <code>try</code> block that calls <code>JSON.parse(\"ungueltig\")</code> (this throws an error). In the <code>catch</code> block, print <code>\"Fehler abgefangen\"</code>.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["Fehler abgefangen"] }],
+          xp: 25,
+        },
       ],
     },
     {
@@ -254,6 +458,41 @@ const LESSONS = (() => {
           },
           starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
           tests: [{ type: "output", expected: ["Geändert"] }],
+          xp: 25,
+        },
+        {
+          id: "event-listener-sim",
+          title: { de: "Event-Listener simulieren", en: "Simulating event listeners" },
+          explanation: {
+            de: "Echte Events kommen von <code>element.addEventListener(\"click\", funktion)</code>. Wir simulieren das hier mit einem einfachen Objekt, das eine Callback-Funktion speichert und später selbst aufruft.",
+            en: "Real events come from <code>element.addEventListener(\"click\", function)</code>. Here we simulate it with a simple object that stores a callback function and calls it later.",
+          },
+          example: "let button = { onClick: null };\nbutton.onClick = () => console.log(\"Geklickt!\");\nbutton.onClick();",
+          task: {
+            de: "Erstelle ein Objekt <code>knopf</code> mit der Eigenschaft <code>onClick: null</code>. Setze <code>onClick</code> auf eine Funktion, die <code>\"Knopf gedrückt\"</code> ausgibt, und rufe sie danach auf.",
+            en: "Create an object <code>knopf</code> with property <code>onClick: null</code>. Set <code>onClick</code> to a function that prints <code>\"Knopf gedrückt\"</code>, then call it.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [{ type: "output", expected: ["Knopf gedrückt"] }],
+          xp: 25,
+        },
+        {
+          id: "form-validation-sim",
+          title: { de: "Formular-Validierung simulieren", en: "Simulating form validation" },
+          explanation: {
+            de: "Bevor ein Formular abgeschickt wird, prüft JavaScript oft die Eingaben. Hier simulieren wir das mit einer Funktion, die eine Eingabe prüft und <code>true</code> oder <code>false</code> zurückgibt.",
+            en: "Before a form is submitted, JavaScript often checks the input. Here we simulate that with a function that checks an input and returns <code>true</code> or <code>false</code>.",
+          },
+          example: "function istGueltig(eingabe) {\n  return eingabe.length >= 3;\n}\nconsole.log(istGueltig(\"ab\"));\nconsole.log(istGueltig(\"abc\"));",
+          task: {
+            de: "Schreibe eine Funktion <code>istGueltigeEmail(text)</code>, die prüft, ob <code>text</code> ein <code>@</code>-Zeichen enthält (nutze <code>.includes(\"@\")</code>). Rufe sie mit <code>\"test@beispiel.de\"</code> auf und gib das Ergebnis aus.",
+            en: "Write a function <code>istGueltigeEmail(text)</code> that checks whether <code>text</code> contains an <code>@</code> character (use <code>.includes(\"@\")</code>). Call it with <code>\"test@beispiel.de\"</code> and print the result.",
+          },
+          starterCode: { de: "// dein Code hier\n", en: "// your code here\n" },
+          tests: [
+            { type: "assert", code: "typeof istGueltigeEmail === 'function' && istGueltigeEmail('test@beispiel.de') === true && istGueltigeEmail('keinemail') === false" },
+            { type: "output", expected: ["true"] },
+          ],
           xp: 25,
         },
       ],
